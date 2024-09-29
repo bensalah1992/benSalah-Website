@@ -6,7 +6,7 @@ html {
 body {
   margin: 0 auto;
   width: 100%;
-  max-width: 80ch;
+  max-width: 100ch;
   padding: 1rem;
   line-height: 1.5;
 }
@@ -82,5 +82,49 @@ h1 {
 
   .hamburger {
     display: none;
+  }
+}
+
+/* Modern Container Styles */
+.intro-container {
+  background-color: #cbddef; /* Dezenter, moderner Farbton */
+  padding: 2rem;
+  margin: 2rem 0;
+  border-radius: 12px; /* Abgerundete Ecken für eine moderne Optik */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Leichter Schatten für Tiefeneffekt */
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Weiche Übergänge */
+}
+
+.intro-container:hover {
+  transform: translateY(-5px); /* Sanfte Bewegung nach oben bei Hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Tieferer Schatten bei Hover */
+}
+
+/* Text-Styling im Container */
+.intro-container h2 {
+  font-size: 2rem;
+  color: #333; /* Moderne, dunkle Farbe für Titel */
+  margin-bottom: 1rem;
+}
+
+.intro-container p {
+  font-size: 1.225rem;
+  color: #555; /* Dezentes Grau für den Fließtext */
+  line-height: 1.7; /* Angenehmer Zeilenabstand für Lesbarkeit */
+}
+
+/* Responsives Design für kleinere Bildschirme */
+@media (max-width: 768px) {
+  .intro-container {
+    padding: 1.5rem;
+  }
+
+  .intro-container h2 {
+    font-size: 1.75rem;
+  }
+
+  .intro-container p {
+    font-size: 1rem;
   }
 }
