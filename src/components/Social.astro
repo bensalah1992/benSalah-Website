@@ -2,13 +2,19 @@
 const { platform, username } = Astro.props;
 ---
 
-<a href={`https://www.${platform}.com/${username}`}>{platform}</a>
+<a href={`https://www.${platform}.com/${username}`} target="_blank" rel="noopener noreferrer" aria-label={platform}>
+  <i class={`fab fa-${platform.toLowerCase()}`}></i>
+</a>
 
 <style>
-    a {
-        padding: 0.5rem 1rem;
-        color: white;
-        background-color: #4c1d95;
-        text-decoration: none;
-    }
+  a {
+    padding: 0.5rem;
+    color: #f1f5f9;
+    font-size: 25px; /* Größe des Icons */
+    transition: transform 0.3s ease;
+  }
+
+  a:hover {
+    transform: scale(1.1); /* Vergrößert das Icon leicht beim Hover */
+  }
 </style>

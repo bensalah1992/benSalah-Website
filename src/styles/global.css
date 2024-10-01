@@ -24,7 +24,7 @@ h1 {
   font-size: 2.5rem;
 }
 
-/* nav styles */
+/* Navigation Styles */
 .hamburger {
   padding-right: 20px;
   cursor: pointer;
@@ -85,7 +85,7 @@ h1 {
   }
 }
 
-/* Intro Container */
+/* Intro Container Styles */
 .intro-container {
   background-color: #cbddef;
   padding: 2rem;
@@ -103,10 +103,9 @@ h1 {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* Text-Styling */
 .intro-container h2 {
   font-size: 2rem;
-  color: #333; 
+  color: #333;
   margin-bottom: 1rem;
 }
 
@@ -116,13 +115,7 @@ h1 {
   line-height: 1.7;
 }
 
-.btn-transition {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-}
-
-/* Button */
+/* Button Styles */
 .btn-transition {
   position: absolute;
   bottom: 20px;
@@ -143,13 +136,11 @@ h1 {
   gap: 6px;
 }
 
-/* Hover-Effekt */
 .btn-transition:hover {
   background-color: #4c1d95;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Fokus-Effekt für Tastatur-Only */
 .btn-transition:focus {
   outline: none;
   box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.3);
@@ -164,7 +155,48 @@ h1 {
   transform: translateX(3px);
 }
 
-/* Responsives Design */
+/* Footer Styles */
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-radius: 15px;
+  background-color: #000000;
+  color: #f1f5f9;
+}
+
+.footer-textbox p {
+  margin: 0.3rem 0;
+}
+
+.social-media {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-media a {
+  transition: transform 0.3s ease;
+}
+
+.social-media a:hover {
+  transform: translateY(-5px);
+}
+
+/* Link Styling */
+a {
+  padding: 0.5rem;
+  color: #4c1d95;
+  font-size: 24px;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+a:hover {
+  transform: scale(1.1);
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
   .intro-container {
     padding: 1.5rem;

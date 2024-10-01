@@ -3,88 +3,86 @@
 ---
 
 <div>
-    <h2 id="intro-heading">Moin und Willkommen :)</h2>
-    <p id="intro-paragraph">
-      Mein Name ist Abdallah Ben-Salah, 
-      <br> 
-      leidenschaftlicher Softwareentwickler und Web-Developer aus dem schönen Hamburg
-      <br><br>
-      Ich beschäftige mich mit allen möglichen IT-Themen
-      <br>
-      Sei es <b>Webentwicklung</b>, <b>Digitalisierung</b>, <b>IT-Sicherheit</b> und vieles mehr,
-      <br>
-      hier wird sich um alles gekümmert
-      <br><br>
-      Schau auch gerne in meinem <b>Blog</b> vorbei!
-      <br>
-      Bis bald 🚀
-    </p>
-    <!-- Button -->
-    <button class="btn-transition" id="toggleBtn">
-      Mehr über mich <span class="arrow">→</span>
-    </button>
-  </div>
-  
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      let showingMore = false;
-  
-      // Texte 
-      const texts = {
-        intro: {
-          heading: "Moin und Willkommen :)",
-          paragraph: `
-            Mein Name ist Abdallah Ben-Salah, 
-            <br> 
-            leidenschaftlicher Softwareentwickler und Web-Developer aus dem schönen Hamburg
-            <br><br>
-            Ich beschäftige mich mit allen möglichen IT-Themen
-            <br>
-            Sei es <b>Webentwicklung</b>, <b>Digitalisierung</b>, <b>IT-Sicherheit</b> und vieles mehr,
-            <br>
-            hier wird sich um alles gekümmert
-            <br><br>
-            Schau auch gerne in meinem <b>Blog</b> vorbei!
-            <br>
-            Bis bald 🚀
-          `,
-          buttonText: "Mehr über mich <span class='arrow'>→</span>"
-        },
-        more: {
-          heading: "",
-          paragraph: `
-            <div class="block-container">
-              <div class="block">
-                <h2>Fähigkeiten und Interessen</h2>
-                <ul>
-                  <li>Webentwicklung (HTML, CSS, JS, Astro...)</li>
-                  <li>Backend-Entwicklung (Python, Java, Node.js...)</li>
-                  <li>DevOps (Netlify,... )</li>
-                  <li>IT-Sicherheit (Forensic, Network, Web Security... )</li>
-                </ul>
-            </div>
-          `,
-          buttonText: "Zurück <span class='arrow'>←</span>"
-        }
-      };
-  
-      // Funktion Text Umschalten
-      function toggleContent() {
-        const introHeading = document.getElementById('intro-heading');
-        const introParagraph = document.getElementById('intro-paragraph');
-        const toggleBtn = document.getElementById('toggleBtn');
-  
-        const content = showingMore ? texts.intro : texts.more;
-        introHeading.innerHTML = content.heading;
-        introParagraph.innerHTML = content.paragraph;
-        toggleBtn.innerHTML = content.buttonText;
-  
-        showingMore = !showingMore;
+  <h2 id="intro-heading">Moin und Willkommen :)</h2>
+  <p id="intro-paragraph">
+    Mein Name ist Abdallah Ben-Salah,
+    <br> 
+    leidenschaftlicher Softwareentwickler und Web-Developer aus dem schönen Hamburg
+    <br><br>
+    Ich beschäftige mich mit allen möglichen IT-Themen
+    <br>
+    Sei es <b>Webentwicklung</b>, <b>Digitalisierung</b>, <b>IT-Sicherheit</b> oder vieles mehr,
+    <br>
+    hier wird sich um alles gekümmert.
+    <br><br>
+    Schau auch gerne in meinem <b>Blog</b> vorbei!
+    <br>
+    Bis bald 🚀
+  </p>
+  <!-- Button -->
+  <button class="btn-transition" id="toggleBtn">
+    Mehr über mich <span class="arrow">→</span>
+  </button>
+</div>
 
-        toggleBtn.blur();
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    let showingMore = false;
+
+    const texts = {
+      intro: {
+        heading: "Moin und Willkommen :)",
+        paragraph: `
+          Mein Name ist Abdallah Ben-Salah,
+          <br>
+          leidenschaftlicher Softwareentwickler und Web-Developer aus dem schönen Hamburg
+          <br><br>
+          Ich beschäftige mich mit allen möglichen IT-Themen
+          <br>
+          Sei es <b>Webentwicklung</b>, <b>Digitalisierung</b>, <b>IT-Sicherheit</b> oder vieles mehr,
+          <br>
+          hier wird sich um alles gekümmert.
+          <br><br>
+          Schau auch gerne in meinem <b>Blog</b> vorbei!
+          <br>
+          Bis bald 🚀
+        `,
+        buttonText: "Mehr über mich <span class='arrow'>→</span>"
+      },
+      more: {
+        heading: "",
+        paragraph: `
+          <div class="block-container">
+            <div class="block">
+              <h2>Fähigkeiten und Interessen</h2>
+              <ul>
+                <li>Webentwicklung (HTML, CSS, JS, Astro...)</li>
+                <li>Backend-Entwicklung (Python, Java, Node.js...)</li>
+                <li>DevOps (Netlify...)</li>
+                <li>IT-Sicherheit (Forensic, Network, Web Security...)</li>
+              </ul>
+            </div>
+          </div>
+        `,
+        buttonText: "Zurück <span class='arrow'>←</span>"
       }
-  
-      // Event-Listener 
-      document.getElementById('toggleBtn').addEventListener('click', toggleContent);
-    });
-  </script>
+    };
+
+    function toggleContent() {
+      const introHeading = document.getElementById('intro-heading');
+      const introParagraph = document.getElementById('intro-paragraph');
+      const toggleBtn = document.getElementById('toggleBtn');
+
+      const content = showingMore ? texts.intro : texts.more;
+      introHeading.innerHTML = content.heading;
+      introParagraph.innerHTML = content.paragraph;
+      toggleBtn.innerHTML = content.buttonText;
+
+      showingMore = !showingMore;
+
+      toggleBtn.blur(); // Entfernt den Fokus nach dem Klicken
+    }
+
+    document.getElementById('toggleBtn').addEventListener('click', toggleContent);
+  });
+</script>
