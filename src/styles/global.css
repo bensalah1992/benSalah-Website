@@ -115,12 +115,87 @@ h1 {
   line-height: 1.7;
 }
 
+.profile-pic {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%; /* Macht das Bild rund */
+  display: block;
+  margin: 1rem auto; /* Zentriert das Bild */
+  object-fit: cover; /* Passt das Bild an den Kreis an */
+}
+
+.profile-pic.hidden {
+  display: none;
+}
+
+.timeline {
+  display: flex;
+  overflow-x: scroll;
+  padding: 20px;
+  gap: 2rem;
+  position: relative;
+  scroll-behavior: smooth;
+  margin-bottom: 2rem; /* Platz für Scroll-Hinweis */
+}
+
+.timeline-item {
+  background-color: #000000;
+  border-radius: 10px;
+  padding: 20px;
+  min-width: 300px;
+  max-width: 350px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.timeline-item:hover {
+  transform: scale(1.05);
+  background-color: #d27218
+}
+
+.timeline-date {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.timeline-content h3 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 1.2rem;
+}
+
+.timeline-content p {
+  color: #c1c1c1;
+  font-size: 1rem;
+}
+
+/* Scroll-Hinweis */
+.scroll-indicator {
+  text-align: center;
+  color: #d27218;
+  font-size: 1.2rem;
+  animation: bounce 1s infinite;
+  margin-top: 1rem;
+}
+
+/* Animation für Scroll-Hinweis */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+}
 /* Button Styles */
 .btn-transition {
   position: absolute;
   bottom: 20px;
   right: 20px;
-  background-color: #363636;
+  background-color: #000000;
   color: white;
   padding: 1px 10px;
   font-size: 1rem;
@@ -137,7 +212,7 @@ h1 {
 }
 
 .btn-transition:hover {
-  background-color: #4c1d95;
+  background-color: #d27218;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
 }
 

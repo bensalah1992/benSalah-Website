@@ -1,21 +1,18 @@
----
-
----
-
 <div>
   <h2 id="intro-heading">Moin und Willkommen :)</h2>
+  <img src="/images/ich.jpg" alt="Profilbild" class="profile-pic">
   <p id="intro-paragraph">
     Mein Name ist Abdallah Ben-Salah,
-    <br> 
+    <br>
     leidenschaftlicher Softwareentwickler und Web-Developer aus dem schönen Hamburg
     <br><br>
     Ich beschäftige mich mit allen möglichen IT-Themen
     <br>
-    Sei es <b>Webentwicklung</b>, <b>Digitalisierung</b>, <b>IT-Sicherheit</b> oder vieles mehr,
+    Sei es <b>Webentwicklung</b>, <b>Digitalisierung</b>, <b>IT-Sicherheit</b> oder vieles mehr
     <br>
-    hier wird sich um alles gekümmert.
+    Bei Fragen oder Anregungen nutze gerne das Kontaktformular
     <br><br>
-    Schau auch gerne in meinem <b>Blog</b> vorbei!
+    Schau auch in meinem <b>Blog</b> vorbei!
     <br>
     Bis bald 🚀
   </p>
@@ -28,6 +25,7 @@
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     let showingMore = false;
+    const profilePic = document.querySelector('.profile-pic');
 
     const texts = {
       intro: {
@@ -39,11 +37,11 @@
           <br><br>
           Ich beschäftige mich mit allen möglichen IT-Themen
           <br>
-          Sei es <b>Webentwicklung</b>, <b>Digitalisierung</b>, <b>IT-Sicherheit</b> oder vieles mehr,
+          Sei es <b>Webentwicklung</b>, <b>Digitalisierung</b>, <b>IT-Sicherheit</b> oder vieles mehr
           <br>
-          hier wird sich um alles gekümmert.
+          Bei Fragen oder Anregungen nutze gerne das Kontaktformular
           <br><br>
-          Schau auch gerne in meinem <b>Blog</b> vorbei!
+          Schau auch in meinem <b>Blog</b> vorbei!
           <br>
           Bis bald 🚀
         `,
@@ -78,9 +76,15 @@
       introParagraph.innerHTML = content.paragraph;
       toggleBtn.innerHTML = content.buttonText;
 
-      showingMore = !showingMore;
+      // Profilbild Ein / Aus
+      if (showingMore) {
+        profilePic.classList.remove('hidden');
+      } else {
+        profilePic.classList.add('hidden');
+      }
 
-      toggleBtn.blur(); // Entfernt den Fokus nach dem Klicken
+      showingMore = !showingMore;
+      toggleBtn.blur();
     }
 
     document.getElementById('toggleBtn').addEventListener('click', toggleContent);
