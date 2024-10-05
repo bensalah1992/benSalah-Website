@@ -1,3 +1,4 @@
+/* Grundlegendes Styling */
 html {
   background-color: #f1f5f9;
   font-family: sans-serif;
@@ -52,14 +53,9 @@ h1 {
   text-align: center;
   padding: 10px 0;
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-weight: bold;
   text-transform: uppercase;
-}
-
-.nav-links a:hover,
-.nav-links a:focus {
-  background-color: #ff9776;
 }
 
 .expanded {
@@ -118,28 +114,28 @@ h1 {
 .profile-pic {
   width: 180px;
   height: 180px;
-  border-radius: 50%; /* Macht das Bild rund */
+  border-radius: 50%;
   display: block;
-  margin: 1rem auto; /* Zentriert das Bild */
-  object-fit: cover; /* Passt das Bild an den Kreis an */
+  margin: 1rem auto;
+  object-fit: cover;
 }
 
 .profile-pic.hidden {
   display: none;
 }
 
+/* Timeline Styles */
 .timeline {
   display: flex;
   overflow-x: scroll;
   padding: 20px;
   gap: 2rem;
-  position: relative;
   scroll-behavior: smooth;
-  margin-bottom: 2rem; /* Platz für Scroll-Hinweis */
+  margin-bottom: 2rem;
 }
 
 .timeline-item {
-  background-color: #000000;
+  background-color: #000;
   border-radius: 10px;
   padding: 20px;
   min-width: 300px;
@@ -151,24 +147,24 @@ h1 {
 
 .timeline-item:hover {
   transform: scale(1.05);
-  background-color: #d27218
+  background-color: #d27218;
 }
 
 .timeline-date {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #ffffff;
+  color: #fff;
   margin-bottom: 1rem;
 }
 
 .timeline-content h3 {
   margin: 0;
-  color: #ffffff;
+  color: #fff;
   font-size: 1.2rem;
 }
 
 .timeline-content p {
-  color: #c1c1c1;
+  color: #fff;
   font-size: 1rem;
 }
 
@@ -181,7 +177,6 @@ h1 {
   margin-top: 1rem;
 }
 
-/* Animation für Scroll-Hinweis */
 @keyframes bounce {
   0%, 100% {
     transform: translateX(0);
@@ -190,12 +185,13 @@ h1 {
     transform: translateX(5px);
   }
 }
+
 /* Button Styles */
 .btn-transition {
   position: absolute;
   bottom: 20px;
   right: 20px;
-  background-color: #000000;
+  background-color: #000;
   color: white;
   padding: 1px 10px;
   font-size: 1rem;
@@ -237,7 +233,7 @@ footer {
   align-items: center;
   padding: 20px;
   border-radius: 15px;
-  background-color: #000000;
+  background-color: #000;
   color: #f1f5f9;
 }
 
@@ -261,7 +257,7 @@ footer {
 /* Link Styling */
 a {
   padding: 0.5rem;
-  color: #4c1d95;
+  color: #000;
   font-size: 24px;
   text-decoration: none;
   transition: transform 0.3s ease;
