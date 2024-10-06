@@ -25,6 +25,15 @@ h1 {
   font-size: 2.5rem;
 }
 
+header {
+  position: sticky;
+  top: 0; /* Bleibt oben, auch wenn man scrollt */
+  z-index: 1000; /* Damit der Header immer oben bleibt */
+  background-color: #f1f5f9; /* Optional: Hintergrundfarbe */
+  width: 100%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Schatten */
+}
+
 /* Navigation Styles */
 .hamburger {
   padding-right: 20px;
@@ -46,6 +55,10 @@ h1 {
   background-color: #ff9776;
   display: none;
   margin: 0;
+}
+
+.icon-red {
+  color: red;
 }
 
 .nav-links a {
