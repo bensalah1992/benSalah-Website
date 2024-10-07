@@ -1,7 +1,42 @@
 ---
-const { title, url } = Astro.props;
+const { title, url, image } = Astro.props;
 ---
 
-<li>
-  <a href={url}>{title}</a>
+<li class="blog-post">
+  <a href={url}>
+    <img src={image} alt={title} class="blog-post-image" />
+    <h2>{title}</h2>
+  </a>
 </li>
+
+<style>
+.blog-post {
+  list-style: none;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+
+.blog-post:hover {
+  transform: scale(1.05); /* Vergrößert den gesamten Post leicht */
+}
+
+.blog-post img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  transition: transform 0.3s ease; /* Für sanfte Übergänge beim Hover */
+}
+
+.blog-post:hover img {
+  transform: scale(1.00); /* Bildzoom beim Hover */
+}
+
+.blog-post h2 {
+  margin: -25px 0 2px;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  transition: color 0.3s ease; /* Sanfte Farbänderung beim Hover */
+}
+
+</style>

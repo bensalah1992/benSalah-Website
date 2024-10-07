@@ -12,9 +12,25 @@ const pageTitle = "Der Blog";
     Hier wirst du eine umfassende, stetig wachsende Sammlung an Blogeinträgen, Tutorials und Krimskrams wiederfinden.<br>
     Im Moment siehst du Beispieleinträge. Lass dich nicht beirren, ich arbeite auf Hochtouren!
   </p>
-  <ul>
+  <ul class="blog-grid">
     {allPosts.map((post) => (
-      <BlogPost url={post.url} title={post.frontmatter.title} />
+      <BlogPost url={post.url} title={post.frontmatter.title} image={post.frontmatter.image.url} />
     ))}
   </ul>
 </BaseLayout>
+
+<style>
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Zwei Spalten */
+    gap: 20px; /* Abstand zwischen den Posts */
+    list-style: none;
+    padding: 0;
+  }
+
+  @media (max-width: 768px) {
+    .blog-grid {
+      grid-template-columns: 1fr; /* Eine Spalte bei kleineren Bildschirmen */
+    }
+  }
+</style>
