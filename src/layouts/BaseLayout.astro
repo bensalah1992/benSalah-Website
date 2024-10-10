@@ -18,10 +18,88 @@ const { pageTitle } = Astro.props;
     <Header />
     <h1>{pageTitle}</h1>
     <slot />
-    <br><br><br><br>
     <Footer />
+    
+    ---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+const { pageTitle } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <Header />
+    <h1>{pageTitle}</h1>
+    <slot />
+    <Footer />
+    
+    <!-- Kontaktformular im Hacker-Stil -->
+    <div id="contactForm" class="contact-form hidden">
+      <form action="mailto:a.bensalah.net@gmail.com" method="POST" enctype="text/plain">
+        <h2>Kontaktformular</h2>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">E-Mail:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Nachricht:</label>
+        <textarea id="message" name="message" required></textarea>
+
+        <button type="submit">Senden</button>
+        <button type="button" id="closeForm">Schließen</button>
+      </form>
+    </div>
+
+    <!-- Skript für das Einblenden des Kontaktformulars -->
     <script>
-      import "../scripts/menu.js";
+      document.addEventListener('DOMContentLoaded', function () {
+        const contactLink = document.getElementById('contactLink');
+        const contactForm = document.getElementById('contactForm');
+        const closeForm = document.getElementById('closeForm');
+
+        contactLink.addEventListener('click', function (e) {
+          e.preventDefault();
+          contactForm.classList.add('visible');
+          contactForm.classList.remove('hidden');
+        });
+
+        closeForm.addEventListener('click', function () {
+          contactForm.classList.add('hidden');
+          contactForm.classList.remove('visible');
+        });
+      });
+    </script>
+  </body>
+</html>
+
+    <!-- Skript für das Einblenden des Kontaktformulars -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const contactLink = document.getElementById('contactLink');
+        const contactForm = document.getElementById('contactForm');
+        const closeForm = document.getElementById('closeForm');
+
+        contactLink.addEventListener('click', function (e) {
+          e.preventDefault();
+          contactForm.classList.add('visible');
+          contactForm.classList.remove('hidden');
+        });
+
+        closeForm.addEventListener('click', function () {
+          contactForm.classList.add('hidden');
+          contactForm.classList.remove('visible');
+        });
+      });
     </script>
   </body>
 </html>

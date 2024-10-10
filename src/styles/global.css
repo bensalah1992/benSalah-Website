@@ -34,6 +34,67 @@ header {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Schatten */
 }
 
+/* Hacker-Stil für das Kontaktformular */
+.contact-form {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  background-color: #000; /* Schwarzer Hintergrund für den Terminal-Look */
+  color: #00ff00; /* Neon-grüner Text für den Hacker-Stil */
+  font-family: 'Courier New', Courier, monospace; /* Monospace Schriftart */
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 255, 0, 0.2);
+  width: 400px;
+  max-width: 100%;
+  border-radius: 10px;
+  transition: transform 0.5s ease;
+  z-index: 1000;
+  display: none;
+}
+
+.contact-form.visible {
+  display: block;
+  transform: translate(-50%, 0);
+}
+
+.contact-form.hidden {
+  display: none;
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  background-color: #000;
+  color: #00ff00;
+  border: 1px solid #00ff00;
+  padding: 8px;
+  margin-bottom: 16px;
+}
+
+.contact-form button {
+  background-color: #000;
+  color: #00ff00;
+  border: 1px solid #00ff00;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #00ff00;
+  color: #000;
+}
+
+#closeForm {
+  margin-top: 10px;
+}
+
 /* Navigation Styles */
 .hamburger {
   padding-right: 20px;
