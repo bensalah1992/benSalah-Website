@@ -8,7 +8,7 @@ language: 'EN'
 image:
     url: 'https://www.webdevdiaries.com/images/astro-logo.png'
     alt: 'The Astro logo on a dark background with a pink glow.'
-tags: ["astro", "tutorial", "webdev"]
+tags: ["astro", "tutorial", "webdev", "english"]
 ---
 <br>
 

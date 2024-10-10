@@ -3,19 +3,37 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 const allPosts = await Astro.glob('../posts/*.md');
 const tags = [...new Set(allPosts.map((post) => post.frontmatter.tags).flat())];
 const pageTitle = "Index";
+
+function getIconForTag(tag) {
+  switch (tag.toLowerCase()) {
+    case 'blog':
+      return 'pen';
+    case 'astro':
+      return 'rocket';
+    case 'tutorial':
+      return 'book';
+    case 'webdev':
+      return 'code';
+    case 'english':
+      return 'flag';
+      case 'deutsch':
+      return 'flag'; 
+    default:
+      return 'tag'; // Fallback-Icon
+  }
+}
 ---
 
 <BaseLayout pageTitle={pageTitle}>
   <p>
-    Hier findest du Links zu allen Themen, die du dir vorstellen kannst!<br><br>
-    Klick auf das Thema, das dich interessiert, und du wirst sofort zu den Blogeinträgen geleitet, die dieses Thema behandeln.<br><br>
-    Keine komplizierte Scheiße, kein aufgehübschter Müll.<br>
-    <b><u>Spielend einfach!</u></b>
+    Klick dich durch!<br><br>
   </p>
   <div class="tags">
     {tags.map((tag) => (
       <p class="tag">
-        <a href={`/tags/${tag}`}>{tag}</a>
+        <a href={`/tags/${tag}`}>
+          <i class={`fa fa-${getIconForTag(tag)}`}></i> {tag}
+        </a>
       </p>
     ))}
   </div>
@@ -24,19 +42,39 @@ const pageTitle = "Index";
 <style>
   a {
     color: #00539F;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
   }
 
   .tags {
     display: flex;
     flex-wrap: wrap;
+    gap: 1rem;
+    padding: 2rem;
   }
 
   .tag {
-    margin: 0.25em;
-    border: dotted 1px #a1a1a1;
-    border-radius: 0.5em;
-    padding: 0.5em 1em;
-    font-size: 1.15em;
-    background-color: #F8FCFD;
+    margin: 0.5em;
+    border: 1px solid #ddd;
+    border-radius: 1em;
+    padding: 0.75em 1.5em;
+    font-size: 1.2em;
+    background-color: #e0f7fa;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .tag:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .tag a {
+    color: #00539F;
+  }
+
+  .tag a:hover {
+    color: #ff6f61;
   }
 </style>
