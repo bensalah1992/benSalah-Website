@@ -2,10 +2,10 @@ import rss, { pagesGlobToRssItems } from '@astrojs/rss';
 
 export async function GET(context) {
   return rss({
-    title: 'Astro Learner | Blog',
-    description: 'My journey learning Astro',
+    title: 'Ben-Salah Blog | Cybersecurity & Web Development',
+    description: 'Erfahre mehr über Cybersecurity, Webentwicklung und alles dazwischen.',
     site: context.site,
-    items: await pagesGlobToRssItems(import.meta.glob('./**/*.md')),
-    customData: `<language>en-us</language>`,
+    items: await pagesGlobToRssItems(import.meta.glob('../posts/*.md')),
+    customData: `<language>de-de</language>`,
   });
 }
