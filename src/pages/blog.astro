@@ -9,7 +9,12 @@ const pageTitle = "Tech Blog";
 <BaseLayout pageTitle={pageTitle}>
   <ul class="blog-grid">
     {allPosts.map((post) => (
-      <BlogPost url={post.url} title={post.frontmatter.title} image={post.frontmatter.image.url} />
+      <BlogPost 
+        url={post.url} 
+        title={post.frontmatter.title} 
+        image={post.frontmatter.image.url} 
+        alt={post.frontmatter.image.alt}
+      />
     ))}
   </ul>
 </BaseLayout>
@@ -17,15 +22,20 @@ const pageTitle = "Tech Blog";
 <style>
   .blog-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Zwei Spalten */
-    gap: 20px; /* Abstand zwischen den Posts */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
     list-style: none;
     padding: 0;
   }
 
+  .blog-grid img {
+    max-width: 100%;
+    border-radius: 8px;
+  }
+
   @media (max-width: 768px) {
     .blog-grid {
-      grid-template-columns: 1fr; /* Eine Spalte bei kleineren Bildschirmen */
+      grid-template-columns: 1fr;
     }
   }
 </style>

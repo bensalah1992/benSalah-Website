@@ -20,7 +20,7 @@ const { posts } = Astro.props;
 ---
 
 <BaseLayout pageTitle={tag}>
-  <p>Hier siehst du Posts mit dem Tag {tag}</p>
+  <p>Hier siehst du Posts mit dem Tag {tag}:</p>
   <ul class="blog-grid">
     {posts.map((post) => (
       <BlogPost 
@@ -35,15 +35,15 @@ const { posts } = Astro.props;
 <style>
   .blog-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Zwei Spalten */
-    gap: 20px; /* Abstand zwischen den Posts */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
     list-style: none;
     padding: 0;
   }
 
   @media (max-width: 768px) {
     .blog-grid {
-      grid-template-columns: 1fr; /* Eine Spalte bei kleineren Bildschirmen */
+      grid-template-columns: 1fr;
     }
   }
 </style>

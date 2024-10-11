@@ -1,4 +1,8 @@
 /* Grundlegendes Styling */
+* {
+  box-sizing: border-box;
+}
+
 html {
   background-color: #f1f5f9;
   font-family: sans-serif;
@@ -16,33 +20,94 @@ p {
   font-size: 20px;
 }
 
-* {
-  box-sizing: border-box;
-}
-
 h1 {
   margin: 1rem 0;
   font-size: 2.5rem;
 }
 
+/* Header */
 header {
   position: sticky;
-  top: 0; /* Bleibt oben, auch wenn man scrollt */
-  z-index: 1000; /* Damit der Header immer oben bleibt */
-  background-color: #f1f5f9; /* Optional: Hintergrundfarbe */
+  top: 0;
+  z-index: 1000;
+  background-color: #f1f5f9;
   width: 100%;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Schatten */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Hacker-Stil für das Kontaktformular */
+/* Navigation */
+.hamburger {
+  padding-right: 20px;
+  cursor: pointer;
+}
+
+.hamburger .line {
+  display: block;
+  width: 40px;
+  height: 5px;
+  margin-bottom: 10px;
+  background-color: #ff9776;
+}
+
+.nav-links {
+  width: 100%;
+  top: 5rem;
+  left: 48px;
+  background-color: #ff9776;
+  display: none;
+  margin: 0;
+}
+
+.nav-links a {
+  display: block;
+  text-align: center;
+  padding: 10px 0;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.nav-links a:hover {
+  color: #ff6f61;
+}
+
+.icon-red {
+  color: red;
+}
+
+.expanded {
+  display: unset;
+}
+
+@media screen and (min-width: 636px) {
+  .nav-links {
+    margin-left: 5em;
+    display: block;
+    position: static;
+    width: auto;
+    background: none;
+  }
+
+  .nav-links a {
+    display: inline-block;
+    padding: 15px 20px;
+  }
+
+  .hamburger {
+    display: none;
+  }
+}
+
+/* Contact Form */
 .contact-form {
   position: fixed;
   top: 20%;
   left: 50%;
   transform: translate(-50%, -100%);
-  background-color: #000; /* Schwarzer Hintergrund für den Terminal-Look */
-  color: #00ff00; /* Neon-grüner Text für den Hacker-Stil */
-  font-family: 'Courier New', Courier, monospace; /* Monospace Schriftart */
+  background-color: #000;
+  color: #00ff00;
+  font-family: 'Courier New', Courier, monospace;
   padding: 20px;
   box-shadow: 0 4px 12px rgba(0, 255, 0, 0.2);
   width: 400px;
@@ -56,10 +121,6 @@ header {
 .contact-form.visible {
   display: block;
   transform: translate(-50%, 0);
-}
-
-.contact-form.hidden {
-  display: none;
 }
 
 .contact-form label {
@@ -95,67 +156,7 @@ header {
   margin-top: 10px;
 }
 
-/* Navigation Styles */
-.hamburger {
-  padding-right: 20px;
-  cursor: pointer;
-}
-
-.hamburger .line {
-  display: block;
-  width: 40px;
-  height: 5px;
-  margin-bottom: 10px;
-  background-color: #ff9776;
-}
-
-.nav-links {
-  width: 100%;
-  top: 5rem;
-  left: 48px;
-  background-color: #ff9776;
-  display: none;
-  margin: 0;
-}
-
-.icon-red {
-  color: red;
-}
-
-.nav-links a {
-  display: block;
-  text-align: center;
-  padding: 10px 0;
-  text-decoration: none;
-  font-size: 1.5rem;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.expanded {
-  display: unset;
-}
-
-@media screen and (min-width: 636px) {
-  .nav-links {
-    margin-left: 5em;
-    display: block;
-    position: static;
-    width: auto;
-    background: none;
-  }
-
-  .nav-links a {
-    display: inline-block;
-    padding: 15px 20px;
-  }
-
-  .hamburger {
-    display: none;
-  }
-}
-
-/* Intro Container Styles */
+/* Intro Container */
 .intro-container {
   background-color: #cbddef;
   padding: 2rem;
@@ -165,7 +166,6 @@ header {
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
-  overflow: hidden;
 }
 
 .intro-container:hover {
@@ -198,7 +198,7 @@ header {
   display: none;
 }
 
-/* Timeline Styles */
+/* Timeline */
 .timeline {
   display: flex;
   overflow-x: scroll;
@@ -242,7 +242,7 @@ header {
   font-size: 1rem;
 }
 
-/* Scroll-Hinweis */
+/* Scroll */
 .scroll-indicator {
   text-align: center;
   color: #d27218;
@@ -260,7 +260,7 @@ header {
   }
 }
 
-/* Button Styles */
+/* Button */
 .btn-transition {
   position: absolute;
   bottom: 20px;
@@ -286,11 +286,6 @@ header {
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
 }
 
-.btn-transition:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.3);
-}
-
 .arrow {
   font-size: 1.2rem;
   transition: transform 0.3s ease;
@@ -300,7 +295,7 @@ header {
   transform: translateX(3px);
 }
 
-/* Footer Styles */
+/* Footer */
 footer {
   display: flex;
   justify-content: space-between;
@@ -328,7 +323,7 @@ footer {
   transform: translateY(-5px);
 }
 
-/* Link Styling */
+/* Link */
 a {
   padding: 0.5rem;
   color: #000;

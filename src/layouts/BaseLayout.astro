@@ -19,8 +19,8 @@ const { pageTitle } = Astro.props;
     <h1>{pageTitle}</h1>
     <slot />
     <Footer />
-    
-    <!-- Kontaktformular im Hacker-Stil -->
+
+    <!-- Kontaktformular -->
     <div id="contactForm" class="contact-form hidden">
       <form action="mailto:a.bensalah.net@gmail.com" method="POST" enctype="text/plain">
         <h2>Kontaktformular</h2>
@@ -38,7 +38,7 @@ const { pageTitle } = Astro.props;
       </form>
     </div>
 
-    <!-- Skript für das Einblenden des Kontaktformulars -->
+    <!-- Skript Kontaktformulars -->
     <script>
       document.addEventListener('DOMContentLoaded', function () {
         const contactLink = document.getElementById('contactLink');
@@ -57,7 +57,7 @@ const { pageTitle } = Astro.props;
         });
 
         document.addEventListener('click', function (e) {
-          const targetElement = e.target as Node; // Typumwandlung von EventTarget zu Node
+          const targetElement = e.target as Node;
           const isClickInsideForm = contactForm.contains(targetElement);
           const isClickOnContactLink = contactLink.contains(targetElement);
 
