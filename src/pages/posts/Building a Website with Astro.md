@@ -24,7 +24,7 @@ In other words, Astro delivers blazing-fast websites while still giving you the 
 
 <br>
 
-## Why Choose Astro? 1🌟
+## Why Choose Astro? 🌟
 
 Astro is a highly efficient framework with several standout features that set it apart from other web development tools. One of the most important aspects is its ability to ship **no JavaScript by default**. This means unless you need interactive elements, your website will not load unnecessary JavaScript, making it faster and more lightweight.
 
