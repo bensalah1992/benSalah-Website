@@ -1,3 +1,28 @@
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', (event) => {
+      navLinks.classList.toggle('expanded');
+      event.stopPropagation();
+    });
+
+    
+    document.addEventListener('click', (event) => {
+      
+      const targetElement = event.target as Node;
+
+      const clickedOutsideNav = !navLinks.contains(targetElement);
+      const clickedOutsideHamburger = !hamburger.contains(targetElement);
+
+      if (clickedOutsideNav && clickedOutsideHamburger) {
+        navLinks.classList.remove('expanded');
+      }
+    });
+  });
+</script>
+
 <div class="hamburger">
   <span class="line"></span>
   <span class="line"></span>

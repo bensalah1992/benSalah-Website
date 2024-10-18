@@ -25,11 +25,13 @@ h1 {
   font-size: 2.5rem;
 }
 
+/* Logo */
 .logo {
   position: absolute;
   top: -150px;
-  right: -75px;
+  right: -20px;
   height: 400px;
+  pointer-events: none;
 }
 
 /* Header */
@@ -40,29 +42,40 @@ header {
   background-color: #f1f5f9;
   width: 100%;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px 20px;
 }
 
-/* Navigation */
+/* Hamburger-Menü */
 .hamburger {
-  padding-right: 20px;
+  display: block;
   cursor: pointer;
+  z-index: 1001;
 }
 
 .hamburger .line {
   display: block;
-  width: 40px;
-  height: 5px;
-  margin-bottom: 10px;
-  background-color: #ff9776;
+  width: 50px;
+  height: 6px;
+  margin: 10px 0;
+  background-color: #000;
 }
 
+/* Navigation */
 .nav-links {
-  width: 100%;
-  top: 5rem;
-  left: 48px;
-  background-color: #ff9776;
   display: none;
-  margin: 0;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #000;
+  z-index: 1001;
+}
+
+.nav-links.expanded {
+  display: block;
 }
 
 .nav-links a {
@@ -76,34 +89,15 @@ header {
 }
 
 .nav-links a:hover {
-  color: #000000;
+  color: #000;
+}
+
+.nav-links a {
+  color: #00ff00;
 }
 
 .icon-red {
   color: red;
-}
-
-.expanded {
-  display: unset;
-}
-
-@media screen and (min-width: 636px) {
-  .nav-links {
-    margin-left: 5em;
-    display: block;
-    position: static;
-    width: auto;
-    background: none;
-  }
-
-  .nav-links a {
-    display: inline-block;
-    padding: 15px 20px;
-  }
-
-  .hamburger {
-    display: none;
-  }
 }
 
 /* Contact Form */
@@ -130,11 +124,6 @@ header {
   transform: translate(-50%, 0);
 }
 
-.contact-form label {
-  display: block;
-  margin-bottom: 8px;
-}
-
 .contact-form input,
 .contact-form textarea {
   width: 100%;
@@ -157,10 +146,6 @@ header {
 .contact-form button:hover {
   background-color: #00ff00;
   color: #000;
-}
-
-#closeForm {
-  margin-top: 10px;
 }
 
 /* Intro Container */
@@ -249,7 +234,7 @@ header {
   font-size: 1rem;
 }
 
-/* Scroll */
+/* Scroll Indicator */
 .scroll-indicator {
   text-align: center;
   color: #d27218;
@@ -305,7 +290,7 @@ header {
 /* Footer */
 footer {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
   padding: 20px;
   border-radius: 15px;
@@ -344,7 +329,16 @@ a:hover {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 936px) {
+  .logo {
+    top: -140px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 350px;
+    width: auto;
+    z-index: 1001;
+  }
+
   .intro-container {
     padding: 1.5rem;
   }
@@ -355,5 +349,25 @@ a:hover {
 
   .intro-container p {
     font-size: 1rem;
+  }
+}
+
+/* Desktop Navigation */
+@media (min-width: 936px) {
+  .nav-links {
+    display: block;
+    position: static;
+    width: auto;
+    background: none;
+  }
+
+  .nav-links a {
+    display: inline-block;
+    padding: 15px 20px;
+    color: #000;
+  }
+
+  .hamburger {
+    display: none
   }
 }
