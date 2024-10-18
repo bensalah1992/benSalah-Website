@@ -22,94 +22,115 @@ const projects = [
 ---
 
 <div class="projects-container">
-    <h2 class="projects-title">Kunden und Projekte</h2>
-    <div class="projects-gallery">
-      {projects.map((project) => (
-        <div class="project-item">
-          <img src={project.image} alt={project.title} class="project-image" />
-          <div class="project-overlay">
-            <h3>{project.title}</h3>
-            <p>{project.description}</p>
+  <h2 class="projects-title">Kunden und Projekte</h2>
+  <div class="projects-gallery">
+    {projects.map((project) => (
+      <div class="project-item">
+        <img src={project.image} alt={project.title} class="project-image" />
+        <div class="project-overlay">
+          <h3>{project.title}</h3>
+          <p>{project.description}</p>
+          {project.link && (
             <a href={project.link} target="_blank">Zur Website</a>
-          </div>
+          )}
         </div>
-      ))}
-    </div>
+      </div>
+    ))}
   </div>
-  
-  <style>
-    .projects-container {
-      margin-top: 50px;
-    }
-  
-    .projects-title {
-      text-align: left;
-      margin-bottom: 20px;
-      font-size: 2rem;
-      color: #333;
-    }
-  
-    .projects-gallery {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 40px;
-    }
-  
-    .project-item {
-      position: relative;
-      width: 300px;
-      height: 500px;
-      overflow: hidden;
-      border-radius: 10px;
-    }
-  
-    .project-image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.3s ease;
-    }
-  
-    .project-item:hover .project-image {
-      transform: scale(1.1);
-    }
-  
-    .project-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.7);
-      color: white;
-      opacity: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      transition: opacity 0.3s ease;
-    }
-  
-    .project-item:hover .project-overlay {
-      opacity: 1;
-    }
-  
-    .project-overlay h3, .project-overlay p, .project-overlay a {
-      margin: 5px 0;
-    }
-  
-    .project-overlay a {
-      color: #00ff00;
-      text-decoration: none;
-      border: 1px solid #00ff00;
-      padding: 5px 10px;
-      border-radius: 5px;
-      transition: background-color 0.3s ease, color 0.3s ease;
-    }
-  
-    .project-overlay a:hover {
-      background-color: #00ff00;
-      color: #000;
-    }
-  </style>
+</div>
+
+<style>
+  .projects-container {
+    margin-top: 50px;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .projects-title {
+    text-align: left;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #333;
+  }
+
+  .projects-gallery {
+    display: flex;
+    gap: 40px;
+    padding-bottom: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+  }
+
+  .project-item {
+    position: relative;
+    width: 300px;
+    height: 500px;
+    overflow: hidden;
+    border-radius: 10px;
+    scroll-snap-align: start;
+    flex-shrink: 0;
+  }
+
+  .project-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .project-item:hover .project-image {
+    transform: scale(1.1);
+  }
+
+  .project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s ease;
+  }
+
+  .project-item:hover .project-overlay {
+    opacity: 1;
+  }
+
+  .project-overlay h3, .project-overlay p, .project-overlay a {
+    margin: 5px 0;
+  }
+
+  .project-overlay a {
+    color: #00ff00;
+    text-decoration: none;
+    border: 1px solid #00ff00;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .project-overlay a:hover {
+    background-color: #00ff00;
+    color: #000;
+  }
+
+  /* Scrollbar */
+  .projects-gallery::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  .projects-gallery::-webkit-scrollbar-thumb {
+    background-color: #00ff00;
+    border-radius: 10px;
+  }
+
+  .projects-gallery::-webkit-scrollbar-track {
+    background-color: #333;
+  }
+</style>
