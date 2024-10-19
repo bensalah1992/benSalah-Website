@@ -39,7 +39,7 @@ header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background-color: #f1f5f9;
+  background-color: rgba(241, 245, 249, 0.7);
   width: 100%;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   display: flex;
@@ -304,7 +304,7 @@ footer {
 
 .social-media {
   display: flex;
-  gap: 1rem;
+  gap: 2rem;
 }
 
 .social-media a {
