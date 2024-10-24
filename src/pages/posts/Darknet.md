@@ -1,6 +1,6 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
-title: 'Darknet: Der garnicht so geheime Ort'
+title: 'Das Darknet: Der geheime Ort im Internet - und warum er nicht so geheim ist'
 pubDate: '14Okt2024'
 description: 'Auftragsmörder und Waffenhändler?'
 author: 'Ben-Salah'
