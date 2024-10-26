@@ -6,9 +6,8 @@ const { frontmatter } = Astro.props;
 <BaseLayout pageTitle={frontmatter.title}>
   <p><em>{frontmatter.description}</em></p>
   <p>{frontmatter.pubDate.toString().slice(0, 10)}</p>
-  <p>Language: {frontmatter.language}</p>
 
-  <img src={frontmatter.image.url} width="650" alt={frontmatter.image.alt} />
+  <img src={frontmatter.image.url} alt={frontmatter.image.alt} class="post-image" />
 
   <div class="tags">
     {frontmatter.tags.map((tag) => (
@@ -27,17 +26,26 @@ const { frontmatter } = Astro.props;
     transition: color 0.3s ease;
   }
 
+  .post-image {
+    width: 650px;
+    max-width: 100%;
+    border-radius: 8px;
+    margin: 20px 0;
+  }
+
   .tags {
     display: flex;
     flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 0.3em;
   }
 
   .tag {
-    margin: 0.25em;
+    margin: 0.1em;
     border: dotted 1px #a1a1a1;
-    border-radius: 0.5em;
-    padding: 0.5em 1em;
-    font-size: 1em;
+    border-radius: 0.3em;
+    padding: 0.3em 0.6em;
+    font-size: 0.75em;
     background-color: #F8FCFD;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
@@ -45,5 +53,54 @@ const { frontmatter } = Astro.props;
   .tag:hover {
     transform: translateY(-3px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  h2, h3, h4 {
+    font-size: 1.5rem;
+  }
+
+  @media (max-width: 768px) {
+    body, p, em {
+      text-align: center;
+      font-size: 1.2rem;
+    }
+
+    h1 {
+      font-size: 1.8rem; 
+      text-align: center;
+    }
+
+    .post-image {
+      width: 90%;
+    }
+
+    .tags {
+      justify-content: center;
+    }
+
+    .tag {
+      font-size: 0.7em;
+      padding: 0.25em 0.5em;
+      margin: 0.1em;
+    }
+
+    h2, h3, h4 {
+      font-size: 1.2rem;
+    }
+  }
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .post-image {
+      width: 85%;
+    }
+
+    body, p, em {
+      text-align: left;
+      font-size: 1.25rem;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+    }
   }
 </style>
