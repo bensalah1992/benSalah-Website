@@ -8,7 +8,7 @@ language: 'DE'
 image:
     url: '/images/phishing.png'
     alt: 'Phishing.'
-tags: ["hacking", "cybersecurity", "deutsch"]
+tags: ["hacking", "security", "deutsch"]
 ---
 Kennst du das? Du öffnest dein E-Mail-Postfach und plötzlich ist da diese Nachricht von „deiner Bank“, die dich auffordert, sofort deine Kontodaten zu bestätigen. Der Betreff: **„Dringend! Sicherheitsüberprüfung notwendig“**. Der Herzschlag geht hoch. Was, wenn da wirklich was nicht stimmt? Doch das ist kein Sicherheitsproblem deiner Bank – es ist ein Versuch, dich in eine Falle zu locken: Phishing!
 
@@ -25,9 +25,13 @@ Phishing ist eine Technik, bei der Angreifer versuchen, sensible Daten wie Passw
 Es gibt verschiedene Formen von Phishing, aber die häufigsten sind:
 
 1. **E-Mail-Phishing**: Die wohl bekannteste Variante. Der Angreifer schickt dir eine täuschend echt aussehende E-Mail, die vorgibt, von deiner Bank, einem Online-Shop oder einem sozialen Netzwerk zu kommen.
+
 2. **Spear-Phishing**: Eine personalisierte Variante. Hier wird die Nachricht speziell auf dich zugeschnitten, basierend auf Informationen, die der Angreifer bereits über dich gesammelt hat.
+
 3. **Whaling**: Ein Angriff auf hochrangige Ziele, wie CEOs oder Führungskräfte. Diese Phishing-Mails sind oft besonders raffiniert gestaltet.
+
 4. **Smishing**: Phishing über SMS. Der Angreifer lockt dich über einen Link oder eine Nachricht auf deinem Handy in die Falle.
+
 5. **Vishing**: Phishing über Telefonanrufe, bei denen sich der Angreifer als vertrauenswürdige Person ausgibt, um an Informationen zu gelangen.
 
 ---

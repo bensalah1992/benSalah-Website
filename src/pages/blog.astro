@@ -49,12 +49,14 @@ const pageTitle = "";
   .blog-post img {
     max-width: 100%;
     border-radius: 8px;
+    height: 300px;
     object-fit: cover;
+    aspect-ratio: 16 / 9;
   }
 
   .blog-post-title {
     margin-top: 10px;
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     color: #333;
   }
 
@@ -64,8 +66,13 @@ const pageTitle = "";
     }
 
     .blog-post-title {
-      font-size: 1.2rem;
+      font-size: 1.4rem;
       margin-top: 5px;
+    }
+
+    .blog-post img {
+      height: 200px;
+      aspect-ratio: 16 / 9;
     }
   }
 </style>

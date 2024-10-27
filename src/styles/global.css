@@ -1,4 +1,4 @@
-/* Grundlegendes Styling */
+/* Base */
 * {
   box-sizing: border-box;
 }
@@ -17,7 +17,7 @@ body {
 }
 
 p {
-  font-size: 20px;
+  font-size: 23px;
 }
 
 h1 {
@@ -172,7 +172,7 @@ header {
 }
 
 .intro-container p {
-  font-size: 1.225rem;
+  font-size: 1.425rem;
   color: #262626;
   line-height: 1.7;
 }
@@ -287,6 +287,18 @@ header {
   transform: translateX(3px);
 }
 
+@media (max-width: 768px) {
+  .btn-transition {
+    padding: 3px 10px;
+    font-size: 0.875rem;
+    bottom: 10px;
+  }
+
+  .arrow {
+    font-size: 0.9rem;
+  }
+}
+
 /* Footer */
 footer {
   display: flex;
@@ -313,6 +325,17 @@ footer {
 
 .social-media a:hover {
   transform: translateY(-5px);
+}
+
+@media (max-width: 768px) {
+  footer {
+    font-size: 0.875rem;
+  }
+
+  .footer-textbox p {
+    font-size: 1rem;
+    margin: 0.2rem 0;
+  }
 }
 
 /* Link */

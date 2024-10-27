@@ -8,7 +8,7 @@ language: 'DE'
 image:
     url: 'https://plus.unsplash.com/premium_photo-1676618539992-21c7d3b6df0f?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
     alt: 'Green lock on a dark backround'
-tags: ["cybersecurity", "hacking", "deutsch"]
+tags: ["security", "hacking", "deutsch"]
 ---
 
 In unserer modernen, vernetzten Welt sind Passwörter der Dreh- und Angelpunkt der digitalen Sicherheit. Sie sind der Schlüssel zu unseren Konten, unseren Identitäten und unseren wertvollsten Informationen. Aber warum sind Passwörter so wichtig und dennoch so anfällig für Hackerangriffe? Um das zu verstehen, betrachten wir die Funktionsweise von Passwörtern und die Techniken des "Hackens".
