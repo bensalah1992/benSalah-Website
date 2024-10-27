@@ -41,19 +41,39 @@ const { posts } = Astro.props;
     padding: 0;
   }
 
+  .blog-post {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .blog-post img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+
+  .blog-post-title {
+    font-size: 1.5rem;
+    margin-top: 0.5em;
+    color: #333;
+  }
+
+  /* Mobile Anpassungen */
   @media (max-width: 768px) {
     .blog-grid {
       grid-template-columns: 1fr;
     }
 
     .blog-post img {
-    width: 100%;
-    margin-bottom: 10px;
-  }
+      width: 100%;
+      margin-bottom: 10px;
+    }
 
-  .blog-post-title {
-    font-size: 1.2rem;
-    margin-top: 5px;
+    .blog-post-title {
+      font-size: 1.2rem;
+      margin-top: 5px;
+    }
   }
-}
 </style>
