@@ -20,100 +20,68 @@ const { pageTitle } = Astro.props;
     <slot />
     <Footer />
 
-<!-- Kontaktformular -->
-<div id="contactForm" class="contact-form hidden">
-  <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="handleSubmit(event)">
+    <!-- Kontaktformular -->
+    <div id="contactForm" class="contact-form hidden">
+      <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <!-- Unsichtbares Feld für Netlify-Honeypot -->
+        <input type="hidden" name="form-name" value="contact" />
+        <input type="hidden" name="bot-field" />
 
-    <input type="hidden" name="form-name" value="contact" />
-    <input type="hidden" name="bot-field" />
+        <h2>Kontaktformular</h2>
+        <p>Schreib mir was Nettes :)</p>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required />
 
-    <h2>Kontaktformular</h2>
-    <p>Schreib mir was Nettes :)</p>
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" required />
+        <label for="email">E-Mail:</label>
+        <input type="email" id="email" name="email" required />
 
-    <label for="email">E-Mail:</label>
-    <input type="email" id="email" name="email" required />
+        <label for="message">Nachricht:</label>
+        <textarea id="message" name="message" required></textarea>
 
-    <label for="message">Nachricht:</label>
-    <textarea id="message" name="message" required></textarea>
+        <button type="submit">Senden</button>
+        <button type="button" id="closeForm">Schließen</button>
+      </form>
+    </div>
 
-    <button type="submit">Senden</button>
-    <button type="button" id="closeForm">Schließen</button>
-
-    <p id="successMessage" class="hidden">Danke für deine Nachricht! Ich werde mich bald bei dir melden.</p>
-  </form>
-</div>
-
-<style>
-  .hidden {
-    display: none;
-  }
-
-  .visible {
-    display: block;
-  }
-</style>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const contactLink = document.getElementById('contactLink');
-    const contactForm = document.getElementById('contactForm');
-    const closeForm = document.getElementById('closeForm');
-    const successMessage = document.getElementById('successMessage');
-
-    if (contactLink) {
-      contactLink.addEventListener('click', function (e) {
-        e.preventDefault();
-        contactForm.classList.add('visible');
-        contactForm.classList.remove('hidden');
-        successMessage.classList.add('hidden');
-      });
-    }
-
-    closeForm.addEventListener('click', function () {
-      contactForm.classList.add('hidden');
-      contactForm.classList.remove('visible');
-    });
-
-    document.addEventListener('click', function (e) {
-      const isClickInsideForm = contactForm.contains(e.target instanceof Node ? e.target : null);
-      const isClickOnContactLink = contactLink && contactLink.contains(e.target instanceof Node ? e.target : null);
-
-      if (!isClickInsideForm && !isClickOnContactLink) {
-        contactForm.classList.add('hidden');
-        contactForm.classList.remove('visible');
+    <style>
+      .hidden {
+        display: none;
       }
-    });
-  });
 
-  function handleSubmit(event) {
-    event.preventDefault();
-    const form = event.target;
-    const successMessage = document.getElementById('successMessage');
-    const contactForm = document.getElementById('contactForm');
-    
-    // Formulardaten manuell in ein Record<string, string> umwandeln
-    const formData = new FormData(form);
-    const formDataEntries = {};
-    formData.forEach((value, key) => {
-      formDataEntries[key] = value.toString();
-    });
-    const urlEncodedData = new URLSearchParams(formDataEntries);
+      .visible {
+        display: block;
+      }
+    </style>
 
-    // Formulardaten in URL-kodierter Form an Netlify senden
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: urlEncodedData.toString(),
-    })
-    .then(() => {
-      form.reset();
-      successMessage.classList.remove('hidden');
-      contactForm.classList.add('hidden');
-    })
-    .catch((error) => alert("Es gab ein Problem beim Absenden des Formulars: " + error));
-  }
-</script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const contactLink = document.getElementById('contactLink');
+        const contactForm = document.getElementById('contactForm');
+        const closeForm = document.getElementById('closeForm');
+
+        if (contactLink) {
+          contactLink.addEventListener('click', function (e) {
+            e.preventDefault();
+            contactForm.classList.add('visible');
+            contactForm.classList.remove('hidden');
+          });
+        }
+
+        closeForm.addEventListener('click', function () {
+          contactForm.classList.add('hidden');
+          contactForm.classList.remove('visible');
+        });
+
+        document.addEventListener('click', function (e) {
+          const isClickInsideForm = contactForm.contains(e.target instanceof Node ? e.target : null);
+          const isClickOnContactLink = contactLink && contactLink.contains(e.target instanceof Node ? e.target : null);
+
+          if (!isClickInsideForm && !isClickOnContactLink) {
+            contactForm.classList.add('hidden');
+            contactForm.classList.remove('visible');
+          }
+        });
+      });
+    </script>
   </body>
 </html>
