@@ -1,41 +1,56 @@
 ---
-const { title, url, image } = Astro.props;
+const { url, title, image } = Astro.props;
 ---
 
 <li class="blog-post">
-  <a href={url}>
+  <a href={url} class="post-link">
     <img src={image} alt={title} class="blog-post-image" />
-    <h2>{title}</h2>
+    <h2 class="blog-post-title">{title}</h2>
   </a>
 </li>
 
 <style>
   .blog-post {
-    list-style: none;
-    margin-bottom: 20px;
-    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
-  .blog-post:hover {
-    transform: scale(1.05);
+  .post-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: transform 0.2s ease;
   }
 
-  .blog-post img {
-    width: 100%;
-    height: auto;
+  .post-link:hover {
+    transform: scale(1.03);
+  }
+
+  .blog-post-image {
+    max-width: 100%;
     border-radius: 8px;
-    transition: transform 0.3s ease;
+    height: 300px;
+    object-fit: cover;
+    aspect-ratio: 16 / 9;
   }
 
-  .blog-post:hover img {
-    transform: scale(1.00);
+  .blog-post-title {
+    margin-top: 10px;
+    font-size: 1.7rem;
+    color: #333;
   }
 
-  .blog-post h2 {
-    margin: -25px 0 2px;
-    text-align: center;
-    font-size: 1.5rem;
-    font-weight: 600;
-    transition: color 0.3s ease;
+  @media (max-width: 768px) {
+    .blog-post-title {
+      font-size: 1.4rem;
+      margin-top: 5px;
+    }
+
+    .blog-post-image {
+      height: 200px;
+    }
   }
 </style>

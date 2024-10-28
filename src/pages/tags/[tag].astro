@@ -25,8 +25,8 @@ const { posts } = Astro.props;
     {posts.map((post) => (
       <BlogPost 
         url={post.url} 
+        image={post.frontmatter.image.url}
         title={post.frontmatter.title} 
-        image={post.frontmatter.image.url} 
       />
     ))}
   </ul>
@@ -44,36 +44,49 @@ const { posts } = Astro.props;
   .blog-post {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
+  }
+
+  .post-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: transform 0.2s ease;
+  }
+
+  .post-link:hover {
+    transform: scale(1.03);
   }
 
   .blog-post img {
-    width: 100%;
+    max-width: 100%;
     border-radius: 8px;
-    margin-bottom: 10px;
+    height: 300px;
+    object-fit: cover;
+    aspect-ratio: 16 / 9;
   }
 
   .blog-post-title {
-    font-size: 1.5rem;
-    margin-top: 0.5em;
+    margin-top: 10px;
+    font-size: 1.7rem;
     color: #333;
   }
 
-  /* Mobile Anpassungen */
   @media (max-width: 768px) {
     .blog-grid {
       grid-template-columns: 1fr;
     }
 
-    .blog-post img {
-      width: 100%;
-      margin-bottom: 20px;
+    .blog-post-title {
+      font-size: 1.4rem;
+      margin-top: 5px;
     }
 
-    .blog-post-title {
-      font-size: 1.2rem;
-      margin-top: 5px;
+    .blog-post img {
+      height: 200px;
+      aspect-ratio: 16 / 9;
     }
   }
 </style>
