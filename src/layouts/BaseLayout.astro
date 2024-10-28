@@ -22,35 +22,51 @@ const { pageTitle } = Astro.props;
 
     <!-- Kontaktformular -->
     <div id="contactForm" class="contact-form hidden">
-      <form name="contact" method="POST" data-netlify="true">
+      <form name="contact" method="POST" data-netlify="true" onsubmit="handleSubmit(event)">
+        <input type="hidden" name="form-name" value="contact" />
         <h2>Kontaktformular</h2>
         <p>Schreib mir was Nettes :)</p>
         <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
-    
+        <input type="text" id="name" name="name" required />
+
         <label for="email">E-Mail:</label>
-        <input type="email" id="email" name="email" required>
-    
+        <input type="email" id="email" name="email" required />
+
         <label for="message">Nachricht:</label>
         <textarea id="message" name="message" required></textarea>
-    
+
         <button type="submit">Senden</button>
         <button type="button" id="closeForm">Schließen</button>
+
+        <p id="successMessage" class="hidden">Danke für deine Nachricht! Ich werde mich bald bei dir melden.</p>
       </form>
     </div>
-    
-    <!-- Skript Kontaktformulars -->
+
+    <style>
+      .hidden {
+        display: none;
+      }
+
+      .visible {
+        display: block;
+      }
+    </style>
+
     <script>
       document.addEventListener('DOMContentLoaded', function () {
         const contactLink = document.getElementById('contactLink');
         const contactForm = document.getElementById('contactForm');
         const closeForm = document.getElementById('closeForm');
+        const successMessage = document.getElementById('successMessage');
 
-        contactLink.addEventListener('click', function (e) {
-          e.preventDefault();
-          contactForm.classList.add('visible');
-          contactForm.classList.remove('hidden');
-        });
+        if (contactLink) {
+          contactLink.addEventListener('click', function (e) {
+            e.preventDefault();
+            contactForm.classList.add('visible');
+            contactForm.classList.remove('hidden');
+            successMessage.classList.add('hidden');
+          });
+        }
 
         closeForm.addEventListener('click', function () {
           contactForm.classList.add('hidden');
@@ -58,9 +74,8 @@ const { pageTitle } = Astro.props;
         });
 
         document.addEventListener('click', function (e) {
-          const targetElement = e.target as Node;
-          const isClickInsideForm = contactForm.contains(targetElement);
-          const isClickOnContactLink = contactLink.contains(targetElement);
+          const isClickInsideForm = contactForm.contains(e.target instanceof Node ? e.target : null);
+          const isClickOnContactLink = contactLink && contactLink.contains(e.target instanceof Node ? e.target : null);
 
           if (!isClickInsideForm && !isClickOnContactLink) {
             contactForm.classList.add('hidden');
@@ -68,6 +83,33 @@ const { pageTitle } = Astro.props;
           }
         });
       });
+
+      //Absenden des Formulars und Anzeigen der Erfolgsmeldung
+      function handleSubmit(event) {
+        event.preventDefault();
+        const form = event.target;
+        const successMessage = document.getElementById('successMessage');
+        
+        // Formulardaten manuell umwandeln
+        const formData = new FormData(form);
+        const formDataEntries = {};
+        formData.forEach((value, key) => {
+          formDataEntries[key] = value.toString();
+        });
+        const urlEncodedData = new URLSearchParams(formDataEntries);
+
+        // Formulardaten an Netlify senden
+        fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: urlEncodedData.toString(),
+        })
+        .then(() => {
+          form.reset();
+          successMessage.classList.remove('hidden');  // success
+        })
+        .catch((error) => alert("Es gab ein Problem beim Absenden des Formulars: " + error));
+      }
     </script>
   </body>
 </html>
