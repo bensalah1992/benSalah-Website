@@ -4,7 +4,7 @@ title: 'VPNs: Schutz oder Mythos? Wie sicher sind virtuelle private Netzwerke wi
 pubDate: '30Okt2024'
 description: 'Lass deinen privaten Internetverkehr für nur 49.99 durch meine Server laufen'
 author: 'Ben-Salah'
-language: 'EN'
+language: 'DE'
 image:
     url: 'https://images.unsplash.com/photo-1603985529862-9e12198c9a60?q=80&w=2061&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
     alt: 'vpn'
