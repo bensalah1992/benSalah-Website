@@ -8,7 +8,7 @@ language: 'DE'
 image:
     url: 'https://www.aconitas.com/images/magazin/darknet-scans-und-darkweb-monitoring/aconitas-magazin-darknet-scans.jpg'
     alt: 'DarkNet'
-tags: ["deutsch", "darknet"]
+tags: ["darknet"]
 ---
 
 Das Darknet – viele haben schon davon gehört, und fast genauso viele stellen sich darunter einen verborgenen, fast mythischen Teil des Internets vor, wo alles möglich ist und Anonymität garantiert scheint. Für manche ist es ein digitaler Untergrund, in dem ausschließlich illegale Geschäfte getätigt werden. Doch das Bild, das oft von Medien und Filmen gezeichnet wird, ist nur teilweise korrekt. In Wahrheit ist das Darknet weniger geheim und mysteriös, als es auf den ersten Blick scheint. Es ist nicht nur der Tummelplatz für Kriminelle, sondern auch ein Werkzeug für Aktivisten, Journalisten und Menschen, die ihre Privatsphäre schützen wollen.

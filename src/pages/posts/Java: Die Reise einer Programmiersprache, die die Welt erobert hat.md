@@ -8,7 +8,7 @@ language: 'DE'
 image:
     url: 'https://rock-the-prototype.com/wp-content/uploads/2022/10/java-programmiersprache.jpg'
     alt: 'java logo'
-tags: ["coding", "deutsch", "java"]
+tags: ["coding","java"]
 ---
 
 Java – kaum eine Programmiersprache ist so bekannt, weit verbreitet und vielseitig. Doch woher kommt Java eigentlich, warum wurde es überhaupt entwickelt, und was macht es so besonders, dass wir es auch nach fast drei Jahrzehnten noch überall finden? In diesem Beitrag werfen wir einen Blick auf die **Geschichte von Java**, die technische Magie dahinter und wie die Sprache sich an moderne Herausforderungen anpasst.

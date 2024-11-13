@@ -8,7 +8,7 @@ language: 'DE'
 image:
     url: '/images/phishing.png'
     alt: 'Phishing.'
-tags: ["hacking", "security", "deutsch"]
+tags: ["hacking", "security"]
 ---
 Kennst du das? Du öffnest dein E-Mail-Postfach und plötzlich ist da diese Nachricht von „deiner Bank“, die dich auffordert, sofort deine Kontodaten zu bestätigen. Der Betreff: **„Dringend! Sicherheitsüberprüfung notwendig“**. Der Herzschlag geht hoch. Was, wenn da wirklich was nicht stimmt? Doch das ist kein Sicherheitsproblem deiner Bank – es ist ein Versuch, dich in eine Falle zu locken: Phishing!
 

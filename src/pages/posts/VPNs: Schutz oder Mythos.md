@@ -8,7 +8,7 @@ language: 'DE'
 image:
     url: 'https://images.unsplash.com/photo-1603985529862-9e12198c9a60?q=80&w=2061&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
     alt: 'vpn'
-tags: ["security", "vpn", "deutsch"]
+tags: ["security", "vpn"]
 ---
 
 In der IT-Welt gibt es kaum ein Produkt, das so kontrovers diskutiert wird wie VPNs, die sogenannten Virtual Private Networks. Die Verheißung: absolute Anonymität und Sicherheit beim Surfen. Die Realität: VPNs können durchaus Schutz bieten, haben jedoch oft gravierende Schwächen und können das Versprechen vollständiger Anonymität schlicht nicht halten. Hinter der VPN-Industrie verbirgt sich mittlerweile ein Markt, der in puncto Marketing alles daran setzt, VPNs als das ultimative Sicherheitswerkzeug zu verkaufen. Doch wie viel davon ist Substanz, und was ist reine Verkaufsstrategie?
