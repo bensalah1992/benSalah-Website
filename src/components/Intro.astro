@@ -1,16 +1,22 @@
+---
+---
 <div>
-  <h2 id="intro-heading">Moin und Willkommen</h2>
+  <h1>
+    <span id="typewriter-heading" class="typewriter-heading hidden"></span><span id="cursor" class="cursor hidden">|</span>
+  </h1>
   <img src="/images/ich.jpg" alt="Profilbild" class="profile-pic">
   <p id="intro-paragraph">
     Ich bin Abdallah Ben-Salah,
     <br>
-    leidenschaftlicher Softwareentwickler und Web-Developer aus dem schönen Hamburg
+    leidenschaftlicher IT-Developer und Unternehmer aus dem schönen Hamburg.
     <br>
-    Ich beschäftige mich unter anderem mit <b>Webentwicklung</b>, <b>Digitalisierung</b>, <b>IT-Sicherheit</b> und vielem mehr
+    Ich beschäftige mich mit <b>Webentwicklung</b>, <b>Digitalisierung</b>, <b>IT-Sicherheit</b> und vielem mehr.
+    <br>
+    Mit kreativen Ideen und einem klaren Blick für Innovationen arbeite ich daran, digitale Lösungen zu entwickeln, die begeistern.
     <br><br>
-    Weiter unten findest du Lebenslauf und Projekte
+    Weiter unten findest du Projekte, an denen ich gearbeitet habe.
     <br>
-    Bei Fragen nutze gerne das Kontaktformular
+    Hast du Fragen oder möchtest dich austauschen? Dann nutze gerne das <strong>Kontaktformular</strong>. 
     <br><br>
     Schau auch in meinem <b>Blog</b> vorbei!
     <br>
@@ -21,24 +27,87 @@
   </button>
 </div>
 
+<style>
+  .typewriter-heading {
+    font-family: inherit;
+    color: inherit;
+    font-size: inherit;
+    display: inline;
+  }
+
+  .cursor {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    display: inline-block;
+    margin-left: 2px;
+    animation: blink 1s steps(2, start) infinite;
+  }
+
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+
+  .hidden {
+    display: none;
+  }
+</style>
+
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    let showingMore = false;
+    const text = "Moin und Willkommen :)";
+    const typewriterHeading = document.getElementById('typewriter-heading');
+    const cursor = document.getElementById('cursor');
+    const toggleBtn = document.getElementById('toggleBtn');
+    const introParagraph = document.getElementById('intro-paragraph');
     const profilePic = document.querySelector('.profile-pic');
+    let showingMore = false;
+    let index = 0;
 
+    // Text-Effekt Typewriter
+    function typeEffect() {
+      if (index < text.length) {
+        typewriterHeading.textContent += text[index];
+        index++;
+        setTimeout(typeEffect, 100);
+      } else {
+        cursor.classList.remove('hidden');
+      }
+    }
+
+    // Startet Typewriter
+    function startTypewriter() {
+      typewriterHeading.classList.remove('hidden');
+      cursor.classList.remove('hidden');
+      typewriterHeading.textContent = ""; // Reset
+      index = 0;
+      typeEffect();
+    }
+
+    // Stoppt Typewriter
+    function stopTypewriter() {
+      typewriterHeading.classList.add('hidden');
+      cursor.classList.add('hidden');
+      typewriterHeading.textContent = "";
+    }
+
+    // Content-Toggle zwischen Intro und More
     const texts = {
       intro: {
-        heading: "Moin und Willkommen",
         paragraph: `
           Ich bin Abdallah Ben-Salah,
           <br>
-          leidenschaftlicher Softwareentwickler und Web-Developer aus dem schönen Hamburg
+          leidenschaftlicher IT-Developer und Unternehmer aus dem schönen Hamburg.
           <br>
-          Ich beschäftige mich unter anderem mit <b>Webentwicklung</b>, <b>Digitalisierung</b>, <b>IT-Sicherheit</b> und vielem mehr
+          Ich beschäftige mich mit <b>Webentwicklung</b>, <b>Digitalisierung</b>, <b>IT-Sicherheit</b> und vielem mehr.
+          <br>
+          Mit kreativen Ideen und einem klaren Blick für Innovationen arbeite ich daran, digitale Lösungen zu entwickeln, die begeistern.
           <br><br>
-          Weiter unten findest du Lebenslauf und Projekte
+          Weiter unten findest du Projekte, an denen ich gearbeitet habe.
           <br>
-          Bei Fragen nutze gerne das Kontaktformular
+          Hast du Fragen oder möchtest dich austauschen? Dann nutze gerne das <strong>Kontaktformular</strong>. 
           <br><br>
           Schau auch in meinem <b>Blog</b> vorbei!
           <br>
@@ -47,7 +116,6 @@
         buttonText: "Mehr über mich <span class='arrow'>→</span>"
       },
       more: {
-        heading: "",
         paragraph: `
           <div class="block-container">
             <div class="block">
@@ -69,18 +137,15 @@
     };
 
     function toggleContent() {
-      const introHeading = document.getElementById('intro-heading');
-      const introParagraph = document.getElementById('intro-paragraph');
-      const toggleBtn = document.getElementById('toggleBtn');
-
       const content = showingMore ? texts.intro : texts.more;
-      introHeading.innerHTML = content.heading;
       introParagraph.innerHTML = content.paragraph;
       toggleBtn.innerHTML = content.buttonText;
 
       if (showingMore) {
+        startTypewriter();
         profilePic.classList.remove('hidden');
       } else {
+        stopTypewriter();
         profilePic.classList.add('hidden');
       }
 
@@ -88,6 +153,10 @@
       toggleBtn.blur();
     }
 
-    document.getElementById('toggleBtn').addEventListener('click', toggleContent);
+    // Startet den Typewriter-Effekt beim Laden der Seite
+    startTypewriter();
+
+    // Event-Listener für den Button
+    toggleBtn.addEventListener('click', toggleContent);
   });
 </script>
